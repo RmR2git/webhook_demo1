@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    stages {
+        stage('Git clone') {
+            steps {
+                git branch: 'main', credentialsId: '5d424a89-8ee4-4fa4-8d0b-20a41f6ec9fa', url: 'https://github.com/RmR2git/webhook_demo.git'
+            }
+        }    
+        stage ('Execute') {
+            steps {
+                sh '''
+                chmod 777 webhook.sh
+                ./webhook.sh
+                echo Done
+                '''
+            }
+        }   
+    }
+}
