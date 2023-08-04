@@ -11,7 +11,7 @@ pipeline {
                 sh '''
                 chmod 777 webhook.sh
                 ./webhook.sh
-                echo Done
+                echo I am Waiting
                 '''
             }
         }   
